@@ -197,12 +197,8 @@ function roundToPowerOfTen(num, pow) {
  *   16 => false
  *   17 => true
  */
-function isPrime(n) {
-  if (n <= 1) return false;
-  for (let i = 2; i * i <= n; ) {
-    if (n % i === 0) return false;
-  }
-  return true;
+function isPrime(/* n */) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -221,7 +217,10 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-  return value.valueOf(def);
+  if (Number.isNaN(+value)) {
+    return def;
+  }
+  return Number(value);
 }
 
 /**
@@ -253,15 +252,8 @@ function getCube(num) {
  *   10 => 55
  */
 function getFibonacciNumber(index) {
-  let mainIndex = 0;
-  let previousIndex = 1;
-  let nextIndex = index;
-  for (let i = 2; i <= index; ) {
-    nextIndex = mainIndex + previousIndex;
-    mainIndex = previousIndex;
-    previousIndex = nextIndex;
-  }
-  return nextIndex;
+  const root = Math.sqrt(5);
+  return Math.round(((root + 1) / 2) ** index / root);
 }
 
 /**
