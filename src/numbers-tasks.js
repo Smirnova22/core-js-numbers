@@ -609,7 +609,6 @@ function getHypotenuse(a, b) {
  */
 function getCountOfOddNumbers(/* number */) {
   throw new Error('Not implemented');
-
 }
 
 module.exports = {
